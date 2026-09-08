@@ -8,8 +8,20 @@ Página estática para mostrar o projeto (GitHub Pages). Não faz parte do app.
   que existe em `apps/web/src/app/viajante/`: passaporte, quadro arrastável e caderno.
 - `estilo.css` — a mesma paleta e tipografia do app.
 
-Publicação: `.github/workflows/pages.yml` sobe esta pasta a cada push em `main`.
-Em **Settings → Pages**, escolha **Source: GitHub Actions**.
+Publicação: esta pasta é o conteúdo do repositório público
+[roteiro-no-mapa-demo](https://github.com/renatomsantana/roteiro-no-mapa-demo),
+que serve o GitHub Pages direto do branch `main`:
+
+    https://renatomsantana.github.io/roteiro-no-mapa-demo/
+
+Para atualizar depois de mexer aqui:
+
+    git add site && git commit -m "site: ..."
+    git subtree push --prefix site site-demo main
+
+(o remoto `site-demo` aponta para aquele repositório). O
+`.github/workflows/pages.yml` da raiz só entra em uso se um dia o projeto inteiro
+virar um repositório público com Pages por Actions.
 
 Para ver localmente: `python -m http.server 4173` dentro desta pasta.
 
