@@ -3,23 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Roteiro no Mapa — roteiro de viagem que se reorganiza sozinho</title>
+    <title>Roteiro no Mapa — as telas do app</title>
     <meta
       name="description"
-      content="Diga como você viaja e receba o roteiro no mapa. Troque uma parada e o dia se reorganiza. Chame os amigos por um link, converse no grupo e guarde no diário: países, cidades e km rodados."
+      content="Roteiro de viagem dia a dia no mapa, com lugares reais, edição ao vivo, grupo por um link e um diário de países, cidades e km rodados. Veja as telas e experimente a demo."
     />
     <meta property="og:title" content="Roteiro no Mapa" />
     <meta
       property="og:description"
-      content="Roteiro de viagem no mapa, editável, em grupo — e um diário com países, cidades e km rodados."
+      content="As telas do app: roteiro no mapa, viagem em grupo e o diário de países, cidades e km rodados."
     />
     <meta property="og:image" content="img/viajante.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="estilo.css" />
   </head>
   <body>
@@ -34,223 +31,297 @@
               stroke-width="1.8"
               stroke-linecap="round"
             />
-            <circle cx="18" cy="15" r="2.4" fill="#b5532f" />
+            <circle cx="18" cy="15" r="2.4" fill="#2378d0" />
           </svg>
           Roteiro no Mapa
         </a>
         <nav class="topo-links">
-          <a class="some" href="#roteiro">O roteiro</a>
-          <a class="some" href="#grupo">Em grupo</a>
+          <a class="some" href="#roteiro">Roteiro</a>
+          <a class="some" href="#grupo">Grupo</a>
           <a class="some" href="#diario">Diário</a>
-          <a class="botao pequeno" href="demo.html">Abrir a demo</a>
+          <a class="some" href="#celular">Celular</a>
+          <a class="botao pequeno" href="demo.html">Demo</a>
         </nav>
       </div>
     </header>
 
     <main>
-      <section class="hero">
+      <section class="capa">
+        <div class="fundo"></div>
+        <div class="veu"></div>
         <div class="limite">
-          <p class="chapeu">protótipo em construção · nada aqui é definitivo</p>
-          <h1>Um roteiro de verdade, no mapa, que se reorganiza sozinho</h1>
+          <p class="linha-fina">Protótipo · ainda não publicado</p>
+          <h1>O roteiro da viagem, dia a dia, no mapa</h1>
           <p class="sub">
-            Você diz para onde vai, quantos dias e como gosta de viajar. Sai um roteiro dia a dia com lugares que
-            existem — cada parada conferida no Google Maps, com horário e caminhada medida. Tirou uma parada? O dia
-            inteiro se refaz em menos de um segundo.
+            Lugares que existem, conferidos no Google Maps, com horário e caminhada medida. Tirou uma parada, o dia se
+            refaz. Chame os amigos por um link. Depois, o diário guarda os países, as cidades e os km.
           </p>
           <div class="acoes">
-            <a class="botao" href="demo.html">Ver a demo do diário &rarr;</a>
-            <a class="botao claro" href="#roteiro">Como funciona</a>
+            <a class="botao" href="demo.html">Experimentar a demo</a>
+            <a class="botao claro" href="#roteiro">Ver as telas</a>
           </div>
         </div>
       </section>
 
-      <div class="limite">
-        <div class="nota">
-          <strong>Sobre esta página.</strong> O app ainda não está publicado (falta contratar as chaves do Google Maps e
-          do pagamento). Aqui estão fotos reais das telas, tiradas do app rodando, e uma
-          <a href="demo.html">demo do diário</a> que funciona de verdade no seu navegador — arrasta, desliza, salva.
-          Nada é enviado para lugar nenhum.
-        </div>
-      </div>
-
-      <section class="faixa">
-        <div class="limite numeros">
-          <div><b>&lt; 1 s</b><span>para refazer um dia</span></div>
-          <div><b>100 %</b><span>paradas com lugar real</span></div>
-          <div><b>1 link</b><span>chama o grupo inteiro</span></div>
-          <div><b>offline</b><span>o roteiro pago abre sem internet</span></div>
-        </div>
-      </section>
-
-      <section id="roteiro">
-        <div class="limite dupla">
-          <div class="texto">
-            <h2>O dia inteiro, na ordem certa</h2>
-            <p>
-              O motor agrupa as paradas por região, resolve a ordem, encaixa as refeições e confere se cada lugar está
-              aberto na hora em que você chega. A lista e o mapa são a mesma coisa: passe o mouse numa parada e o
-              marcador acende.
-            </p>
-            <ul>
-              <li><strong>Remover</strong> sugere uma substituta da mesma região.</li>
-              <li><strong>Travar</strong> segura a parada no lugar quando o resto se reorganiza.</li>
-              <li><strong>Arrastar</strong> muda a ordem — e agora também no celular, com o dedo.</li>
-              <li><strong>Plano B de chuva</strong> troca o que é ao ar livre por museu, café ou compras por perto.</li>
-            </ul>
-          </div>
-          <figure>
-            <img src="img/editor.png" alt="Editor do roteiro com a lista do dia 1 em Lisboa" />
-            <figcaption>
-              Lisboa, 4 dias. O mapa do Google entra no espaço à direita quando a chave estiver configurada.
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section id="grupo">
-        <div class="limite dupla invertida">
-          <figure>
-            <img src="img/conversa.png" alt="Conversa do grupo aberta dentro do roteiro" />
-            <figcaption>A conversa fica junto do roteiro — não some no meio do grupo do WhatsApp.</figcaption>
-          </figure>
-          <div class="texto">
-            <span class="etiqueta novo">novo</span>
-            <h2>Viagem é coisa de grupo</h2>
-            <p>
-              Um link só por viagem, o mesmo para qualquer pessoa, sem prazo. Quem abrir entra e já edita junto — a tela
-              de todo mundo se atualiza sozinha.
-            </p>
-            <ul>
-              <li><strong>Conversa do grupo</strong> dentro da viagem, com contador de não lidas.</li>
-              <li><strong>Sugestões com voto</strong>: quem só lê também sugere; quem organiza decide.</li>
-              <li><strong>"Posto por Ana"</strong> em cada parada, com uma cor por pessoa no mapa.</li>
-              <li>Chamar no WhatsApp com um toque — é o mesmo link.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section id="diario">
-        <div class="limite dupla">
-          <div class="texto">
-            <span class="etiqueta novo">novo</span>
-            <h2>E depois: o diário</h2>
-            <p>
-              O app também guarda a sua vida de viagem. O passaporte conta países, cidades, km rodados e dias na
-              estrada — contando só o que já aconteceu. O que está planejado fica de lado, sem inflar o número.
-            </p>
-            <ul>
-              <li>Quadro em três colunas: <strong>planejadas, rolando, feitas</strong>.</li>
-              <li>Roteiros criados no app entram sozinhos, com cidades e km já calculados.</li>
-              <li>Viagem de carro de 2015? Cria à mão e carimba as cidades.</li>
-              <li>Busca por nome, cidade ou país — sem precisar de acento.</li>
-            </ul>
-            <p><a class="botao pequeno" href="demo.html">Experimentar o diário &rarr;</a></p>
-          </div>
-          <figure>
-            <img src="img/viajante.png" alt="Passaporte com países, cidades, km rodados e o quadro de viagens" />
-            <figcaption>O passaporte conta só o que já aconteceu; o planejado aparece de lado.</figcaption>
-          </figure>
-        </div>
-      </section>
-
-      <section>
-        <div class="limite dupla invertida">
-          <figure>
-            <img src="img/caderno.png" alt="Caderno de uma viagem com blocos de hotel, moto e tarefa" />
-            <figcaption>
-              Um título vira seção: a seta recolhe o dia inteiro e mostra o resumo (blocos, km e gasto).
-            </figcaption>
-          </figure>
-          <div class="texto">
-            <h2>Um caderno por viagem, tipo Notion</h2>
-            <p>
-              Uma lista só, arrastável, com blocos de tipos diferentes — e tudo preenchível: hotel, avião, ônibus, trem,
-              carro, moto, barco, monumento, restaurante, ingresso, gasto, tarefa, anotação, link.
-            </p>
-            <ul>
-              <li>Um bloco de <strong>título</strong> vira seção: dobra o dia inteiro com um clique.</li>
-              <li>Os blocos de transporte carregam os <strong>km</strong>, que sobem para o passaporte.</li>
-              <li>Os que têm valor somam o <strong>gasto da viagem</strong>.</li>
-              <li>Arrasta pela pega, no dedo ou no mouse; desliza para o lado para remover.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="faixa">
-        <div class="limite dupla">
-          <div class="texto">
-            <h2>Funciona no seu aparelho</h2>
-            <p>
-              É onde a viagem acontece. No celular o quadro mostra uma coluna por vez e o cartão anda com o dedo; o
-              roteiro pago fica guardado no aparelho e abre sem internet, com a imagem do dia.
-            </p>
-            <ul>
-              <li><strong>Android e iPhone</strong>: instala como app (PWA) ou pelas lojas, com ícone na tela.</li>
-              <li><strong>Chrome, Safari e Firefox</strong>: as telas de arrastar e deslizar são testadas nos três
-                motores a cada mudança, no computador e em celular.</li>
-              <li><strong>Entra com a conta Google</strong> (ou por um link no e-mail, sem senha).</li>
-              <li><strong>Seus dados ficam salvos na conta</strong>: abriu no computador, está no celular. A sessão
-                dura 90 dias — não precisa entrar de novo a cada viagem.</li>
-            </ul>
-          </div>
-          <figure class="celular">
-            <img src="img/viajante-celular.png" alt="O diário no celular, com uma coluna por vez" />
-          </figure>
-        </div>
-      </section>
-
-      <section>
+      <section class="numeros">
         <div class="limite">
-          <h2 style="font-size: 30px; margin-bottom: 18px">O que já está pronto</h2>
-          <div class="cartoes">
-            <div class="cartao">
-              <h3>O motor</h3>
-              <p>
-                Agrupa por região, ordena, encaixa horários, mede caminhadas e refaz só o dia que você mexeu. Coberto
-                por 69 testes.
-              </p>
+          <div><b>20</b><span>telas</span></div>
+          <div><b>5</b><span>navegadores testados</span></div>
+          <div><b>173</b><span>testes automáticos</span></div>
+          <div><b>&lt; 1 s</b><span>para refazer um dia</span></div>
+        </div>
+      </section>
+
+      <section class="bloco" id="roteiro">
+        <div class="limite">
+          <div class="titulo-secao">
+            <div>
+              <span class="marcador">01 — o roteiro</span>
+              <h2>Você responde sete perguntas; o dia sai pronto</h2>
             </div>
-            <div class="cartao">
-              <h3>A conta</h3>
-              <p>
-                Entrar com Google ou por link no e-mail, amostra grátis do dia 1, Pix para liberar o resto, reembolso em
-                7 dias, exportar e apagar seus dados.
-              </p>
-            </div>
-            <div class="cartao">
-              <h3>O grupo</h3>
-              <p>Link único, edição junto, sugestões com voto, conversa e "quem colocou cada parada".</p>
-            </div>
-            <div class="cartao">
-              <h3>O diário</h3>
-              <p>Passaporte, quadro arrastável e caderno preenchível por viagem.</p>
-            </div>
-            <div class="cartao">
-              <h3>Offline e app</h3>
-              <p>
-                O roteiro pago abre sem internet, com imagem por dia. Instalável no Android e no iPhone, e testado em
-                Chrome, Safari e Firefox.
-              </p>
-            </div>
-            <div class="cartao">
-              <h3>O que falta</h3>
-              <p>
-                Chaves do Google Maps e do LLM, conta de pagamento, domínio e o primeiro deploy. O código está pronto e
-                testado.
-              </p>
-            </div>
+            <p>Clique em qualquer tela para vê-la inteira. Todas são fotos do app rodando, sem retoque.</p>
+          </div>
+
+          <div class="grade">
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/nova.png" alt="Onboarding: destino e datas" loading="lazy" /></span>
+              <h3>Onde e quando</h3>
+              <p>Destino, datas, hospedagem, ritmo, interesses, restrições e com quem você viaja.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/resumo.png" alt="Resumo antes de gerar" loading="lazy" /></span>
+              <h3>Confere antes de gerar</h3>
+              <p>O resumo mostra o que o motor vai usar. Nada de caixa-preta.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/editor.png" alt="Editor do roteiro, dia 1" loading="lazy" /></span>
+              <h3>O dia, na ordem certa</h3>
+              <p>Paradas agrupadas por região, horário conferido, caminhada medida entre uma e outra.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/planob.png" alt="Prévia do plano B de chuva" loading="lazy" /></span>
+              <h3>Plano B de chuva</h3>
+              <p>Troca o que é ao ar livre por museu, café ou compras a até 3 km — e mostra antes de aplicar.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/publico.png" alt="Link público do roteiro" loading="lazy" /></span>
+              <h3>Link para quem não tem conta</h3>
+              <p>Abre sem login, com o dia 1 inteiro e o resto resumido.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/destinos.png" alt="Página de destinos" loading="lazy" /></span>
+              <h3>Páginas de destino</h3>
+              <p>Um roteiro-exemplo pronto por cidade, para quem chega pelo Google.</p>
+            </button>
           </div>
         </div>
       </section>
 
-      <section>
-        <div class="limite" style="text-align: center">
-          <h2 style="font-size: 32px">Dá para brincar agora</h2>
-          <p style="color: var(--tinta-2); max-width: 52ch; margin: 12px auto 22px">
-            A demo do diário roda inteira no seu navegador. Arraste os cartões, deslize no celular, abra um caderno e
-            preencha um trecho — os km sobem no passaporte na hora.
+      <section class="bloco tinta" id="grupo">
+        <div class="limite">
+          <div class="titulo-secao">
+            <div>
+              <span class="marcador">02 — em grupo</span>
+              <h2>Um link só, o mesmo para todo mundo</h2>
+            </div>
+            <p>Quem abrir entra e já edita junto. A tela de quem está com a viagem aberta se atualiza sozinha.</p>
+          </div>
+
+          <div class="grade">
+            <button class="quadro largo" type="button">
+              <span class="moldura"><img src="img/amigos.png" alt="Painel de amigos com o link" loading="lazy" /></span>
+              <h3>Chamar o grupo</h3>
+              <p>Copiar o link ou mandar no WhatsApp. Sem prazo, sem limite de pessoas.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura">
+                <img src="img/sugestoes.png" alt="Sugestão do grupo com voto" loading="lazy" />
+              </span>
+              <h3>Sugerir sem bagunçar</h3>
+              <p>Quem só lê também sugere. O grupo vota, quem organiza decide — e o crédito fica na parada.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura">
+                <img src="img/conversa.png" alt="Conversa do grupo dentro do roteiro" loading="lazy" />
+              </span>
+              <h3>Conversa junto do roteiro</h3>
+              <p>O que é sobre a viagem não se perde no meio do grupo do WhatsApp.</p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="bloco" id="diario">
+        <div class="limite">
+          <div class="titulo-secao">
+            <div>
+              <span class="marcador">03 — o diário</span>
+              <h2>Onde você já esteve, em números</h2>
+            </div>
+            <p>Países, cidades, km rodados e dias na estrada — contando só o que já aconteceu.</p>
+          </div>
+
+          <div class="grade">
+            <button class="quadro largo" type="button">
+              <span class="moldura">
+                <img src="img/viajante.png" alt="Passaporte e quadro de viagens" loading="lazy" />
+              </span>
+              <h3>Passaporte e quadro</h3>
+              <p>Planejadas, rolando, feitas. Arrasta o cartão entre as colunas; no celular, desliza.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/caderno.png" alt="Caderno com seções" loading="lazy" /></span>
+              <h3>Caderno por viagem</h3>
+              <p>Blocos arrastáveis; um título vira seção e recolhe o dia inteiro.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura">
+                <img src="img/bloco-campos.png" alt="Campos preenchíveis de um bloco" loading="lazy" />
+              </span>
+              <h3>Tudo preenchível</h3>
+              <p>Hotel, voo, ônibus, monumento, ingresso, gasto. Transporte carrega km e vai para o passaporte.</p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="bloco tinta" id="celular">
+        <div class="limite">
+          <div class="titulo-secao">
+            <div>
+              <span class="marcador">04 — no celular</span>
+              <h2>É onde a viagem acontece</h2>
+            </div>
+            <p>
+              Instala como app no Android e no iPhone. As telas de arrastar e deslizar são testadas em Chrome, Safari e
+              Firefox a cada mudança.
+            </p>
+          </div>
+
+          <div class="grade celulares">
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/cel-landing.png" alt="Início no celular" loading="lazy" /></span>
+              <h3>Início</h3>
+              <p>Instalável pelo navegador, sem passar por loja.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/cel-editor.png" alt="Roteiro no celular" loading="lazy" /></span>
+              <h3>O dia na mão</h3>
+              <p>Arrastar pela pega, deslizar para remover ou travar.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/cel-conversa.png" alt="Conversa no celular" loading="lazy" /></span>
+              <h3>Conversa</h3>
+              <p>O grupo combina sem sair do roteiro.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/cel-viajante.png" alt="Diário no celular" loading="lazy" /></span>
+              <h3>Diário</h3>
+              <p>Uma coluna por vez; o cartão anda com o dedo.</p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="bloco">
+        <div class="limite">
+          <div class="titulo-secao">
+            <div>
+              <span class="marcador">05 — conta e pagamento</span>
+              <h2>Dia 1 de graça; o resto por Pix</h2>
+            </div>
+            <p>Entra com Google ou por um link no e-mail. Sem senha, sem assinatura.</p>
+          </div>
+
+          <div class="grade">
+            <button class="quadro largo" type="button">
+              <span class="moldura"><img src="img/precos.png" alt="Página de preços" loading="lazy" /></span>
+              <h3>Preço por faixa de dias</h3>
+              <p>Uma vez, por viagem. Reembolso em até 7 dias pela própria conta.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/pagar.png" alt="Pagamento por Pix" loading="lazy" /></span>
+              <h3>Pix com QR</h3>
+              <p>Confirmação automática: a viagem desbloqueia sozinha, sem recarregar.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura"><img src="img/conta.png" alt="Página da conta" loading="lazy" /></span>
+              <h3>Sua conta</h3>
+              <p>Recibos, links públicos que você revoga e exportar ou apagar tudo.</p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="bloco tinta diario">
+        <div class="limite">
+          <div class="titulo-secao">
+            <div>
+              <span class="marcador">06 — diário de obra</span>
+              <h2>O que foi ficando pronto</h2>
+            </div>
+            <p>Construído em etapas, cada uma com teste antes de seguir.</p>
+          </div>
+          <ol>
+            <li>
+              <time>06 set</time>
+              <div>
+                <strong>O motor</strong>
+                <p>Agrupa por região, ordena, encaixa horários e refaz só o dia que você mexeu. 69 testes.</p>
+              </div>
+            </li>
+            <li>
+              <time>06 set</time>
+              <div>
+                <strong>Conta, amostra e Pix</strong>
+                <p>Entrar sem senha, dia 1 de graça, pagamento com confirmação automática e modo offline.</p>
+              </div>
+            </li>
+            <li>
+              <time>07 set</time>
+              <div>
+                <strong>Viagem em grupo</strong>
+                <p>Um link por viagem, edição junto, sugestões com voto e "quem colocou cada parada".</p>
+              </div>
+            </li>
+            <li>
+              <time>08 set</time>
+              <div>
+                <strong>Diário do viajante e conversa</strong>
+                <p>Passaporte, quadro arrastável, caderno preenchível — e o chat do grupo dentro da viagem.</p>
+              </div>
+            </li>
+            <li>
+              <time>08 set</time>
+              <div>
+                <strong>Safari, Firefox, Android e iPhone</strong>
+                <p>
+                  A suíte passou a rodar nos cinco. O WebKit revelou uma edição do caderno que podia se perder antes de
+                  gravar; corrigido no mesmo dia.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="bloco">
+        <div class="limite">
+          <div class="nota">
+            <strong>Sobre esta página.</strong> O app ainda não está no ar — faltam a chave do Google Maps, a conta de
+            pagamento e o domínio. O que existe aqui são fotos do app rodando de verdade e uma
+            <a href="demo.html">demo do diário</a> que funciona no seu navegador. O que você mexer nela fica salvo só no
+            seu aparelho.
+          </div>
+        </div>
+      </section>
+
+      <section class="chamada">
+        <div class="limite">
+          <h2>A demo funciona de verdade</h2>
+          <p>
+            Arraste os cartões, deslize no celular, abra um caderno e preencha um trecho: os km sobem no passaporte na
+            hora.
           </p>
           <a class="botao" href="demo.html">Abrir a demo</a>
         </div>
@@ -260,8 +331,10 @@
     <footer>
       <div class="limite">
         <span>Roteiro no Mapa · protótipo · dados de lugares © Google</span>
-        <span>Feito com Next.js, Postgres/PostGIS e um motor próprio de roteiros.</span>
+        <span>Next.js, Postgres/PostGIS e um motor próprio de roteiros.</span>
       </div>
     </footer>
+
+    <script src="galeria.js"></script>
   </body>
 </html>

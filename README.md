@@ -2,11 +2,15 @@
 
 Página estática para mostrar o projeto (GitHub Pages). Não faz parte do app.
 
-- `index.html` — apresentação, com fotos reais das telas em `img/`.
+- `index.html` — a galeria: 20 fotos reais das telas em `img/`, em grade, com lupa
+  (`galeria.js`) para ver cada uma inteira. Paleta azul e branca, com a grade densa
+  no espírito do Letterboxd — a moldura é da página, as telas é que são o app.
 - `demo.html` + `demo.js` + `demo.css` — demo do diário do viajante que roda inteira
   no navegador (localStorage, nada de servidor). É uma reimplementação em JS puro do
   que existe em `apps/web/src/app/viajante/`: passaporte, quadro arrastável e caderno.
-- `estilo.css` — a mesma paleta e tipografia do app.
+- `estilo.css` — a moldura da página (azul e branco, fonte Inter).
+- `demo.css` carrega a paleta e as fontes do **app** (papel e terra) dentro de
+  `body.demo`, para a demo continuar com a cara do produto.
 
 Publicação: esta pasta é o conteúdo do repositório público
 [roteiro-no-mapa-demo](https://github.com/renatomsantana/roteiro-no-mapa-demo),

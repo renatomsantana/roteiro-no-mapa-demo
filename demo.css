@@ -1,5 +1,58 @@
 /* Telas da demo: passaporte, quadro e caderno. */
 
+/*
+ * A demo imita o app, então ela carrega a paleta e as fontes do app. O topo e o
+ * rodapé continuam sendo os da página (azul): é a moldura em volta do produto.
+ */
+body.demo {
+  --papel: #f5efe4;
+  --papel-2: #ede4d3;
+  --cartao: #fffaf1;
+  --tinta: #1e1a15;
+  --tinta-2: #4a4238;
+  --tinta-3: #7a7062;
+  --linha: #d9cdb8;
+  --terra: #b5532f;
+  --terra-escuro: #8f3f22;
+  --terra-claro: #f3dccf;
+  --oliva: #5c6b3c;
+  --oliva-claro: #e3e8d3;
+  --aviso: #9a6b00;
+  --aviso-claro: #f7ebc4;
+  --sombra: 0 1px 0 rgba(30, 26, 21, 0.06), 0 8px 24px -16px rgba(30, 26, 21, 0.35);
+  --titulo: Fraunces, Georgia, "Times New Roman", serif;
+  --texto: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--texto);
+}
+
+body.demo h1,
+body.demo h2,
+body.demo h3 {
+  font-family: var(--titulo);
+  font-variation-settings:
+    "opsz" 144,
+    "SOFT" 30;
+  letter-spacing: -0.015em;
+  font-weight: 600;
+}
+
+body.demo a {
+  color: var(--terra);
+}
+
+body.demo .nota {
+  background: var(--cartao);
+  border-color: var(--linha);
+  border-left-color: var(--terra);
+  color: var(--tinta-2);
+}
+
+body.demo footer {
+  background: var(--tinta);
+}
+
 /* As classes abaixo definem `display`, que venceria o `[hidden]` do navegador. */
 /* biome-ignore lint/complexity/noImportantStyles: é o jeito de o [hidden] valer */
 [hidden] {
