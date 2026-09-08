@@ -30,4 +30,7 @@ virar um repositório público com Pages por Actions.
 Para ver localmente: `python -m http.server 4173` dentro desta pasta.
 
 As fotos são geradas do app rodando; para refazê-las, suba o app e use o Playwright
-(veja o histórico do repositório).
+(veja o histórico do repositório). A tela do link do grupo é tirada com
+`NEXT_PUBLIC_APP_URL=https://roteironomapa.example` (endereço reservado para
+ilustração) para não aparecer `localhost` na foto — a variável entra no **build**,
+não só no `next start`.
