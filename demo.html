@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Demo · Roteiro no Mapa</title>
+    <meta
+      name="description"
+      content="Demo do diário do viajante: passaporte com países, cidades e km rodados, quadro arrastável e caderno preenchível. Roda inteiro no navegador."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="estilo.css" />
+    <link rel="stylesheet" href="demo.css" />
+  </head>
+  <body>
+    <header class="topo">
+      <div class="limite">
+        <a class="marca" href="./">
+          <svg width="22" height="22" viewBox="0 0 20 20" aria-hidden="true">
+            <path
+              d="M2 15 C 6 15, 6 5, 10 5 S 14 15, 18 15"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+            <circle cx="18" cy="15" r="2.4" fill="#b5532f" />
+          </svg>
+          Roteiro no Mapa
+        </a>
+        <nav class="topo-links">
+          <a href="./">&larr; voltar</a>
+          <button class="chip" type="button" id="recomecar">recomeçar a demo</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="limite painel">
+      <div class="nota" style="margin-bottom: 22px">
+        <strong>Demo do diário.</strong> Tudo aqui roda no seu navegador e fica salvo só neste aparelho — nada é
+        enviado. No computador, arraste os cartões pela pega <span aria-hidden="true">⠿</span>. No celular, deslize o
+        cartão para o lado para mudar de coluna.
+      </div>
+
+      <div id="tela"></div>
+    </main>
+
+    <footer>
+      <div class="limite">
+        <span>Demo estática do diário · o app de verdade roda em Next.js com Postgres/PostGIS</span>
+        <span><a href="./">voltar para a apresentação</a></span>
+      </div>
+    </footer>
+
+    <script src="demo.js"></script>
+  </body>
+</html>
