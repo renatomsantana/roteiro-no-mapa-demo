@@ -304,6 +304,45 @@
       ],
       soltas: [],
       coluna: 'feita',
+      aba: 'dia',
+      dia: {
+        titulo: 'Dia 1 · Lisboa',
+        data: 'sexta, 12/03',
+        inicio: 9 * 60 + 30,
+        paradas: [
+          { id: 'p1', nome: 'Miradouro da Senhora do Monte', cat: 'mirante', dur: 30 },
+          { id: 'p2', nome: 'Rossio', cat: 'atração', dur: 30 },
+          { id: 'p3', nome: 'Elevador de Santa Justa', cat: 'atração', dur: 40 },
+          { id: 'p4', nome: 'Taberna da Rua das Flores', cat: 'refeição', dur: 60 },
+          { id: 'p5', nome: 'Convento do Carmo', cat: 'museu', dur: 60 },
+        ],
+        sugestoes: [
+          {
+            id: 's1',
+            nome: 'Mosteiro dos Jerónimos',
+            cat: 'atração',
+            dur: 60,
+            autor: 'Bruno',
+            nota: 'meu irmão jura que o pastel daqui é o melhor',
+          },
+          {
+            id: 's2',
+            nome: 'Miradouro de Santa Catarina',
+            cat: 'mirante',
+            dur: 30,
+            autor: 'Carla',
+            nota: 'pôr do sol, leva casaco',
+          },
+          {
+            id: 's3',
+            nome: 'Time Out Market',
+            cat: 'compras',
+            dur: 45,
+            autor: 'Ana',
+            nota: 'se bater fome antes do almoço',
+          },
+        ],
+      },
     };
   }
 
@@ -384,23 +423,155 @@
   // ------------------------------------------------------------------ telas
   const tela = document.getElementById('tela');
 
+  const hhmm = (min) => `${String(Math.floor(min / 60)).padStart(2, '0')}:${String(min % 60).padStart(2, '0')}`;
+  const corDe = (nome) => {
+    let h = 0;
+    for (const c of nome) h = (h * 31 + c.charCodeAt(0)) % 360;
+    return `hsl(${h} 45% 38%)`;
+  };
+
+  function abas() {
+    const um = (aba, rotulo) =>
+      `<button type="button" data-aba-demo="${aba}" class="${estado.aba === aba ? 'ativa' : ''}">${rotulo}</button>`;
+    return `<div class="abas-demo">${um('dia', 'Roteiro do dia')}${um('diario', 'Meu diário')}</div>`;
+  }
+
   function render() {
-    tela.innerHTML = vendo ? htmlCaderno(viagem(vendo)) : htmlQuadro();
+    if (!estado.dia) estado.dia = semente().dia;
+    if (!estado.aba) estado.aba = 'dia';
+    const corpo = vendo ? htmlCaderno(viagem(vendo)) : estado.aba === 'dia' ? htmlDia() : htmlQuadro();
+    tela.innerHTML = (vendo ? '' : abas()) + corpo;
     salvar();
+  }
+
+  /** O dia com as sugestões do grupo do lado: arrastar de uma coluna para a outra. */
+  function htmlDia() {
+    const d = estado.dia;
+    let hora = d.inicio;
+    const paradas = d.paradas
+      .map((p, i) => {
+        const inicio = hora;
+        hora += p.dur + 15;
+        return `
+          <div class="item" data-item="${p.id}" data-zona="dia" data-indice="${i}" data-total="${d.paradas.length}">
+            <div class="deslizavel">
+              <div class="acoes-deslize"><span class="direita"></span><span class="esquerda">tirar do dia</span></div>
+              <div class="conteudo-deslize">
+                <div class="parada">
+                  <button class="pega" type="button" data-pega aria-label="arrastar para reordenar">⠿</button>
+                  <span class="numero">${i + 1}</span>
+                  <div class="corpo">
+                    <div class="linha1">
+                      <span class="nome">${escapar(p.nome)}</span>
+                      <span class="hora">${hhmm(inicio)}–${hhmm(inicio + p.dur)}</span>
+                    </div>
+                    <div class="linha2">
+                      <span>${escapar(p.cat)}</span>
+                      ${
+                        p.posto
+                          ? `<span class="posto"><i style="background:${corDe(p.posto)}">${p.posto[0]}</i> posto por ${escapar(p.posto)}</span>`
+                          : ''
+                      }
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>`;
+      })
+      .join('');
+
+    const sugestoes = d.sugestoes
+      .map(
+        (g, i) => `
+        <div class="item" data-item="${g.id}" data-zona="sugestoes" data-indice="${i}" data-total="${d.sugestoes.length}">
+          <div class="deslizavel">
+            <div class="acoes-deslize"><span class="direita">colocar no dia</span><span class="esquerda"></span></div>
+            <div class="conteudo-deslize">
+              <div class="sugestao">
+                <button class="pega" type="button" data-pega aria-label="arrastar para o dia">⠿</button>
+                <div class="corpo">
+                  <div class="linha1"><span class="nome">${escapar(g.nome)}</span></div>
+                  <div class="linha2">
+                    <span class="posto"><i style="background:${corDe(g.autor)}">${g.autor[0]}</i> ${escapar(g.autor)}</span>
+                  </div>
+                  <p class="nota">“${escapar(g.nota)}”</p>
+                  <button class="ligacao" type="button" data-colocar="${g.id}">colocar no dia</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>`,
+      )
+      .join('');
+
+    const proxima = d.paradas[0];
+    return `
+      <div class="cabecalho-demo">
+        <div>
+          <p class="chapeu">${escapar(d.data)}</p>
+          <h1>${escapar(d.titulo)}</h1>
+        </div>
+      </div>
+
+      <div class="aviso-telefone">
+        <div class="cartao-aviso">
+          <div class="app">Roteiro no Mapa <span>agora</span></div>
+          <p class="titulo">PRÓX. PARADA · ${proxima ? escapar(proxima.nome.toUpperCase()) : 'DIA VAZIO'}</p>
+          <p class="corpo">
+            ${proxima ? `${hhmm(d.inicio)} · ${escapar(proxima.cat)} — o aviso chega no celular quando estiver perto.` : 'Coloque uma parada no dia.'}
+          </p>
+        </div>
+      </div>
+
+      <div class="dois-lados">
+        <section>
+          <div class="titulo-secao"><h2>O dia</h2><span class="dica">arraste pela pega ⠿</span></div>
+          <div class="lista" data-lista="dia">${paradas || '<p class="vazio">dia vazio — traga uma sugestão para cá.</p>'}</div>
+        </section>
+        <section>
+          <div class="titulo-secao"><h2>O grupo sugeriu</h2><span class="dica">arraste para o dia</span></div>
+          <div class="lista" data-lista="sugestoes">${sugestoes || '<p class="vazio">o grupo não sugeriu mais nada.</p>'}</div>
+        </section>
+      </div>`;
+  }
+
+  /** Move um item entre "o dia" e "as sugestões" (ou reordena dentro de uma coluna). */
+  function aplicarDia(zona, ids, id) {
+    const d = estado.dia;
+    const todos = [...d.paradas, ...d.sugestoes];
+    const acha = (x) => todos.find((t) => t.id === x);
+    const vindoDeSugestao = d.sugestoes.some((g) => g.id === id);
+    if (zona === 'dia') {
+      if (vindoDeSugestao) {
+        const item = acha(id);
+        if (item) item.posto = item.autor;
+      }
+      d.paradas = ids.map(acha).filter(Boolean);
+      d.sugestoes = d.sugestoes.filter((g) => !ids.includes(g.id));
+    } else {
+      d.sugestoes = ids.map(acha).filter(Boolean);
+      d.paradas = d.paradas.filter((p) => !ids.includes(p.id));
+    }
+    render();
   }
 
   function htmlQuadro() {
     const p = passaporte();
-    const chips = p.paises
+    // Parede de carimbos: bandeira, país e os lugares dele.
+    const carimbos = p.paises
       .map(
-        (x) =>
-          `<button class="chip ${paisAberto === x.codigo ? 'aberto' : ''}" data-pais="${x.codigo}" type="button">
-             <span aria-hidden="true">${bandeira(x.codigo)}</span> ${escapar(nomeDoPais(x.codigo))}
-             <span class="conta">${x.cidades.length}</span>
-           </button>`,
+        (x) => `
+        <li class="carimbo">
+          <div class="topo">
+            <span class="bandeira" aria-hidden="true">${bandeira(x.codigo)}</span>
+            <span class="pais">${escapar(nomeDoPais(x.codigo))}</span>
+            <span class="conta">${x.cidades.length} ${x.cidades.length === 1 ? 'lugar' : 'lugares'}</span>
+          </div>
+          <p class="lugares">${escapar(x.cidades.join(' · '))}</p>
+        </li>`,
       )
       .join('');
-    const abertoAgora = p.paises.find((x) => x.codigo === paisAberto);
 
     const colunas = COLUNAS.map((c) => {
       const lista = daColuna(c.status);
@@ -439,8 +610,7 @@
             ${p.feitas ? `<em>${p.feitas} viagens feitas</em>` : ''}
           </div>
         </div>
-        ${chips ? `<div class="paises">${chips}</div>` : ''}
-        ${abertoAgora ? `<p class="cidades-do-pais">${escapar(abertoAgora.cidades.join(' · '))}</p>` : ''}
+        ${carimbos ? `<div class="carimbos"><p class="rotulo">Carimbos</p><ul>${carimbos}</ul></div>` : ''}
         ${
           p.paises.length === 0
             ? '<p class="cidades-do-pais">Seu passaporte está em branco. Marque uma viagem como <strong>feita</strong> ou carimbe uma cidade.</p>'
@@ -711,8 +881,10 @@
       const ids = contam.filter((n) => n !== a.linha).map((n) => n.dataset.item);
       ids.splice(indice, 0, a.item.dataset.item);
       a.linha.remove();
-      if (lista.dataset.lista === 'caderno') reordenarBlocos(ids);
-      else moverViagem(a.item.dataset.item, lista.dataset.lista, ids);
+      const zona = lista.dataset.lista;
+      if (zona === 'caderno') reordenarBlocos(ids);
+      else if (zona === 'dia' || zona === 'sugestoes') aplicarDia(zona, ids, a.item.dataset.item);
+      else moverViagem(a.item.dataset.item, zona, ids);
     } else {
       a.linha.remove();
     }
@@ -732,12 +904,25 @@
     if (!d.ativo) return;
     const item = d.alvo.closest('[data-item]');
     if (!item) return;
+    const zona = item.dataset.zona;
     if (d.dx >= LIMIAR_DESLIZE) {
-      if (item.dataset.zona !== 'caderno' && item.dataset.zona !== 'feita') avancar(item.dataset.item, 1);
+      if (zona === 'sugestoes') colocarNoDia(item.dataset.item);
+      else if (zona !== 'caderno' && zona !== 'dia' && zona !== 'feita') avancar(item.dataset.item, 1);
     } else if (d.dx <= -LIMIAR_DESLIZE) {
-      if (item.dataset.zona === 'caderno') removerBloco(item.dataset.item);
-      else if (item.dataset.zona !== 'planejada') avancar(item.dataset.item, -1);
+      if (zona === 'caderno') removerBloco(item.dataset.item);
+      else if (zona === 'dia') tirarDoDia(item.dataset.item);
+      else if (zona !== 'planejada' && zona !== 'sugestoes') avancar(item.dataset.item, -1);
     }
+  }
+
+  function colocarNoDia(id) {
+    const d = estado.dia;
+    aplicarDia('dia', [...d.paradas.map((p) => p.id), id], id);
+  }
+
+  function tirarDoDia(id) {
+    const d = estado.dia;
+    aplicarDia('sugestoes', [...d.sugestoes.map((g) => g.id), id], id);
   }
 
   function removerBloco(bid) {
@@ -833,8 +1018,10 @@
     if (j < 0 || j >= ids.length) return;
     ev.preventDefault();
     ids.splice(j, 0, ids.splice(i, 1)[0]);
-    if (lista.dataset.lista === 'caderno') reordenarBlocos(ids);
-    else moverViagem(item.dataset.item, lista.dataset.lista, ids);
+    const zona = lista.dataset.lista;
+    if (zona === 'caderno') reordenarBlocos(ids);
+    else if (zona === 'dia' || zona === 'sugestoes') aplicarDia(zona, ids, item.dataset.item);
+    else moverViagem(item.dataset.item, zona, ids);
   });
 
   tela.addEventListener('click', (ev) => {
@@ -851,6 +1038,16 @@
       vendo = null;
       desfazer = null;
       render();
+      return;
+    }
+    if (acha('[data-aba-demo]')) {
+      estado.aba = acha('[data-aba-demo]').dataset.abaDemo;
+      vendo = null;
+      render();
+      return;
+    }
+    if (acha('[data-colocar]')) {
+      colocarNoDia(acha('[data-colocar]').dataset.colocar);
       return;
     }
     if (acha('[data-aba]')) {

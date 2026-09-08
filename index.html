@@ -40,6 +40,7 @@
           <a class="some" href="#grupo">Grupo</a>
           <a class="some" href="#diario">Diário</a>
           <a class="some" href="#celular">Celular</a>
+          <a class="some" href="#avisos">Avisos</a>
           <a class="botao pequeno" href="demo.html">Demo</a>
         </nav>
       </div>
@@ -91,7 +92,7 @@
             <button class="quadro" type="button">
               <span class="moldura"><img src="img/resumo.png" alt="Resumo antes de gerar" loading="lazy" /></span>
               <h3>Confere antes de gerar</h3>
-              <p>O resumo mostra o que o motor vai usar. Nada de caixa-preta.</p>
+              <p>O resumo repete o que você respondeu, para conferir antes de gastar o tempo da geração.</p>
             </button>
             <button class="quadro" type="button">
               <span class="moldura"><img src="img/editor.png" alt="Editor do roteiro, dia 1" loading="lazy" /></span>
@@ -196,9 +197,17 @@
               <h2>É onde a viagem acontece</h2>
             </div>
             <p>
-              Instala como app no Android e no iPhone. As telas de arrastar e deslizar são testadas em Chrome, Safari e
+              O mesmo app no computador e no telefone. As telas de arrastar e deslizar são testadas em Chrome, Safari e
               Firefox a cada mudança.
             </p>
+          </div>
+
+          <div class="aparelhos">
+            <div class="notebook">
+              <div class="tampa"><img src="img/viajante.png" alt="O diário no computador" loading="lazy" /></div>
+              <div class="base"></div>
+            </div>
+            <div class="telefone"><img src="img/cel-viajante.png" alt="O diário no telefone" loading="lazy" /></div>
           </div>
 
           <div class="grade celulares">
@@ -226,11 +235,61 @@
         </div>
       </section>
 
+      <section class="bloco" id="avisos">
+        <div class="limite dupla-aviso">
+          <div class="texto">
+            <span class="marcador">05 — no bolso</span>
+            <h2>O aviso chega antes de você precisar dele</h2>
+            <p>
+              No dia da viagem o roteiro não fica preso na tela: o app avisa qual é a próxima parada, a que horas e
+              quanto falta para chegar. E avisa também quando alguém do grupo mexe em alguma coisa.
+            </p>
+            <ul>
+              <li>Próxima parada, com o horário e a distância a pé.</li>
+              <li>Troca de cidade: o trem, a plataforma e o dia já montado do outro lado.</li>
+              <li>Sugestão nova do grupo, para votar sem abrir o app.</li>
+              <li>Véspera: "amanhã é o seu dia 3", com o resumo.</li>
+            </ul>
+          </div>
+
+          <div class="telefone">
+            <div class="tela">
+              <p class="relogio">08:12</p>
+              <p class="data">sexta, 12 de março</p>
+
+              <div class="notificacao">
+                <div class="app"><span>Roteiro no Mapa</span><span>agora</span></div>
+                <p class="titulo">PRÓX. PARADA · RESTAURANTE DO NINO</p>
+                <p class="corpo">12:30 · 400 m a pé daqui. Reserva no nome de Ana, mesa para 4.</p>
+              </div>
+
+              <div class="notificacao">
+                <div class="app"><span>Roteiro no Mapa</span><span>7 min</span></div>
+                <p class="titulo">PRÓX. PARADA · VENEZA, ITÁLIA</p>
+                <p class="corpo">Trem 08:12 de Florença, plataforma 4. O dia 5 já está montado do outro lado.</p>
+              </div>
+
+              <div class="notificacao">
+                <div class="app"><span>Roteiro no Mapa</span><span>22 min</span></div>
+                <p class="titulo">Bruno sugeriu o Mosteiro dos Jerónimos</p>
+                <p class="corpo">"meu irmão jura que o pastel daqui é o melhor" — toque para votar.</p>
+              </div>
+
+              <div class="notificacao">
+                <div class="app"><span>Roteiro no Mapa</span><span>ontem</span></div>
+                <p class="titulo">Amanhã é o seu dia 3</p>
+                <p class="corpo">7 paradas, 8,7 km, começa às 09:40 no Miradouro da Senhora do Monte.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="bloco">
         <div class="limite">
           <div class="titulo-secao">
             <div>
-              <span class="marcador">05 — conta e pagamento</span>
+              <span class="marcador">06 — conta e pagamento</span>
               <h2>Dia 1 de graça; o resto por Pix</h2>
             </div>
             <p>Entra com Google ou por um link no e-mail. Sem senha, sem assinatura.</p>
@@ -260,7 +319,7 @@
         <div class="limite">
           <div class="titulo-secao">
             <div>
-              <span class="marcador">06 — diário de obra</span>
+              <span class="marcador">07 — diário de obra</span>
               <h2>O que foi ficando pronto</h2>
             </div>
             <p>Construído em etapas, cada uma com teste antes de seguir.</p>

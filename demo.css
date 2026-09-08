@@ -42,6 +42,20 @@ body.demo a {
   color: var(--terra);
 }
 
+/* O topo e o rodapé continuam sendo os da página (azul), não os do app. */
+body.demo header.topo .marca,
+body.demo footer a {
+  color: var(--branco);
+}
+
+body.demo nav.topo-links a {
+  color: #b9cde3;
+}
+
+body.demo nav.topo-links a:hover {
+  color: var(--branco);
+}
+
 body.demo .nota {
   background: var(--cartao);
   border-color: var(--linha);
@@ -640,5 +654,256 @@ select:focus {
   header.topo .chip {
     font-size: 12px;
     padding: 4px 8px;
+  }
+}
+
+/* ------------------------------------------------------------- abas da demo */
+.abas-demo {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.abas-demo button {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--linha);
+  background: var(--cartao);
+  color: var(--tinta-2);
+  cursor: pointer;
+}
+
+.abas-demo button.ativa {
+  background: var(--tinta);
+  border-color: var(--tinta);
+  color: var(--papel);
+}
+
+/* ------------------------------------------------------------- aviso (notificação) */
+.aviso-telefone {
+  margin: 4px 0 20px;
+}
+
+.cartao-aviso {
+  max-width: 460px;
+  border-radius: 16px;
+  padding: 12px 14px;
+  background: rgba(30, 26, 21, 0.92);
+  color: #f2ece1;
+  box-shadow: 0 10px 30px -18px rgba(30, 26, 21, 0.9);
+}
+
+.cartao-aviso .app {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b6a893;
+}
+
+.cartao-aviso .titulo {
+  margin: 6px 0 2px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.01em;
+}
+
+.cartao-aviso .corpo {
+  margin: 0;
+  font-size: 13px;
+  color: #cdc2b0;
+}
+
+/* ------------------------------------------------------------- dia + sugestões */
+.dois-lados {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 20px;
+}
+
+.dois-lados .titulo-secao {
+  margin-bottom: 8px;
+}
+
+.dois-lados h2 {
+  font-size: 18px;
+}
+
+.parada,
+.sugestao {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  border: 1px solid var(--linha);
+  border-radius: 10px;
+  background: var(--cartao);
+  padding: 10px 12px;
+  box-shadow: var(--sombra);
+}
+
+.parada .numero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--mar);
+  color: var(--papel);
+  font-size: 12px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.parada .corpo,
+.sugestao .corpo {
+  flex: 1;
+  min-width: 0;
+}
+
+.parada .linha1,
+.sugestao .linha1 {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.parada .nome,
+.sugestao .nome {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.parada .hora {
+  font-size: 12px;
+  color: var(--tinta-3);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.parada .linha2,
+.sugestao .linha2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--tinta-3);
+  margin-top: 2px;
+}
+
+.posto {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.posto i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.sugestao .nota {
+  margin: 6px 0 4px;
+  font-size: 13px;
+  color: var(--tinta-2);
+}
+
+@media (max-width: 820px) {
+  .dois-lados {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------------------------------------- carimbos */
+.carimbos {
+  border-top: 1px solid var(--linha);
+  margin-top: 16px;
+  padding-top: 14px;
+}
+
+.carimbos .rotulo {
+  margin: 0 0 10px;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--tinta-3);
+}
+
+.carimbos ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.carimbo {
+  border: 1px solid var(--linha);
+  border-radius: 10px;
+  background: rgba(237, 228, 211, 0.4);
+  padding: 12px;
+}
+
+.carimbo .topo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.carimbo .bandeira {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid var(--linha);
+  background: var(--cartao);
+  font-size: 16px;
+}
+
+.carimbo .pais {
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.carimbo .conta {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--tinta-3);
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.carimbo .lugares {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--tinta-2);
+}
+
+@media (max-width: 820px) {
+  .carimbos ul {
+    grid-template-columns: 1fr;
   }
 }

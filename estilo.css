@@ -278,7 +278,7 @@ section.bloco.tinta {
   font-size: 24px;
 }
 
-.titulo-secao .marcador {
+.marcador {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -581,5 +581,151 @@ footer a {
   .lupa button {
     width: 38px;
     height: 38px;
+  }
+}
+
+/* ------------------------------------------------------------------ aparelhos */
+.aparelhos {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 26px;
+  align-items: end;
+  margin-bottom: 26px;
+}
+
+/* Notebook: tampa, tela e base. */
+.notebook .tampa {
+  border: 10px solid #16202c;
+  border-bottom-width: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #16202c;
+  box-shadow: 0 24px 44px -30px rgba(10, 37, 64, 0.8);
+}
+
+.notebook .tampa img {
+  width: 100%;
+  display: block;
+}
+
+.notebook .base {
+  height: 12px;
+  border-radius: 0 0 12px 12px;
+  background: linear-gradient(180deg, #223145, #16202c);
+  margin: 0 auto;
+  width: 78%;
+}
+
+/* Telefone: moldura, entalhe e tela. */
+.telefone {
+  border: 9px solid #16202c;
+  border-radius: 34px;
+  background: #16202c;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 44px -30px rgba(10, 37, 64, 0.8);
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.telefone .tela::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92px;
+  height: 18px;
+  border-radius: 999px;
+  background: #16202c;
+  z-index: 2;
+}
+
+.telefone img,
+.telefone .tela {
+  display: block;
+  width: 100%;
+  border-radius: 26px;
+  overflow: hidden;
+}
+
+/* Tela de bloqueio com os avisos. */
+.telefone .tela {
+  background: linear-gradient(170deg, #16324f 0%, #0a2540 60%, #071a2e 100%);
+  color: #fff;
+  padding: 46px 12px 20px;
+  min-height: 520px;
+}
+
+.telefone .relogio {
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 46px;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+}
+
+.telefone .data {
+  margin: 0 0 22px;
+  text-align: center;
+  font-size: 13px;
+  color: #a8c4e0;
+}
+
+.notificacao {
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  padding: 10px 12px;
+  margin-bottom: 9px;
+}
+
+.notificacao .app {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #b9d2ea;
+}
+
+.notificacao .titulo {
+  margin: 5px 0 2px;
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.notificacao .corpo {
+  margin: 0;
+  font-size: 12.5px;
+  color: #d6e5f4;
+  line-height: 1.35;
+}
+
+.dupla-aviso {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 340px);
+  gap: 40px;
+  align-items: center;
+}
+
+.dupla-aviso ul {
+  margin: 14px 0 0;
+  padding-left: 18px;
+  color: var(--tinta-2);
+  font-size: 15px;
+}
+
+.dupla-aviso li {
+  margin-bottom: 7px;
+}
+
+@media (max-width: 900px) {
+  .aparelhos,
+  .dupla-aviso {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
