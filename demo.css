@@ -579,3 +579,13 @@ select:focus {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 520px) {
+  .cabecalho-demo h1 {
+    font-size: 27px;
+  }
+  header.topo .chip {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+}

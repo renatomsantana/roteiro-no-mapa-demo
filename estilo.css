@@ -373,3 +373,26 @@ footer .limite {
     display: none;
   }
 }
+
+/* No celular o topo precisa caber numa linha só. */
+@media (max-width: 520px) {
+  header.topo .limite {
+    gap: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .marca {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  nav.topo-links {
+    gap: 2px;
+    font-size: 13px;
+  }
+  nav.topo-links a {
+    padding: 5px 7px;
+  }
+  .hero {
+    padding: 40px 0 24px;
+  }
+}
