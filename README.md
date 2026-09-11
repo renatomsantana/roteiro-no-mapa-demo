@@ -23,9 +23,10 @@ Para atualizar depois de mexer aqui:
     git add site && git commit -m "site: ..."
     git subtree push --prefix site site-demo main
 
-(o remoto `site-demo` aponta para aquele repositório). O
-`.github/workflows/pages.yml` da raiz só entra em uso se um dia o projeto inteiro
-virar um repositório público com Pages por Actions.
+(o remoto `site-demo` aponta para aquele repositório; o `origin` é o repositório
+privado do app, `roteiro-no-mapa`). O `.github/workflows/pages.yml` da raiz só roda
+quando pedido (Run workflow) e só serve se um dia o projeto inteiro virar um
+repositório com Pages por Actions.
 
 Para ver localmente: `python -m http.server 4173` dentro desta pasta.
 
