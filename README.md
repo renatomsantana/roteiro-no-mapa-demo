@@ -2,7 +2,7 @@
 
 Página estática para mostrar o projeto (GitHub Pages). Não faz parte do app.
 
-- `index.html` — a galeria: 20 fotos reais das telas em `img/`, em grade, com lupa
+- `index.html` — a galeria: 22 fotos reais das telas em `img/`, em grade, com lupa
   (`galeria.js`) para ver cada uma inteira. Paleta azul e branca, com a grade densa
   no espírito do Letterboxd — a moldura é da página, as telas é que são o app.
 - `demo.html` + `demo.js` + `demo.css` — demo do diário do viajante que roda inteira

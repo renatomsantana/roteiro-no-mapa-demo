@@ -6,12 +6,12 @@
     <title>Roteiro no Mapa — as telas do app</title>
     <meta
       name="description"
-      content="Roteiro de viagem dia a dia no mapa, com lugares reais, edição ao vivo, grupo por um link e um diário de países, cidades e km rodados. Veja as telas e experimente a demo."
+      content="Roteiro de viagem dia a dia no mapa, com lugares reais, edição ao vivo, mudanças pedidas por escrito, sozinho ou em grupo por um link, e um diário de países, cidades e km rodados. Veja as telas e experimente a demo."
     />
     <meta property="og:title" content="Roteiro no Mapa" />
     <meta
       property="og:description"
-      content="As telas do app: roteiro no mapa, viagem em grupo e o diário de países, cidades e km rodados."
+      content="As telas do app: roteiro no mapa, mudança pedida por escrito, viagem sozinho ou em grupo e o diário de países, cidades e km rodados."
     />
     <meta property="og:image" content="img/viajante.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -37,6 +37,7 @@
         </a>
         <nav class="topo-links">
           <a class="some" href="#roteiro">Roteiro</a>
+          <a class="some" href="#pedido">Pedido</a>
           <a class="some" href="#grupo">Grupo</a>
           <a class="some" href="#diario">Diário</a>
           <a class="some" href="#celular">Celular</a>
@@ -55,7 +56,8 @@
           <h1>O roteiro da viagem, dia a dia, no mapa</h1>
           <p class="sub">
             Lugares que existem, conferidos no Google Maps, com horário e caminhada medida. Tirou uma parada, o dia se
-            refaz. Chame os amigos por um link. Depois, o diário guarda os países, as cidades e os km.
+            refaz. Escreva "tira os restaurantes e começa às 10h" e a viagem se refaz. Sozinho, ou com os amigos por um
+            link. Depois, o diário guarda os países, as cidades e os km.
           </p>
           <div class="acoes">
             <a class="botao" href="demo.html">Experimentar a demo</a>
@@ -66,9 +68,9 @@
 
       <section class="numeros">
         <div class="limite">
-          <div><b>20</b><span>telas</span></div>
+          <div><b>22</b><span>telas</span></div>
           <div><b>5</b><span>navegadores testados</span></div>
-          <div><b>173</b><span>testes automáticos</span></div>
+          <div><b>258</b><span>testes automáticos</span></div>
           <div><b>&lt; 1 s</b><span>para refazer um dia</span></div>
         </div>
       </section>
@@ -118,14 +120,50 @@
         </div>
       </section>
 
+      <section class="bloco" id="pedido">
+        <div class="limite">
+          <div class="titulo-secao">
+            <div>
+              <span class="marcador">02 — peça uma mudança</span>
+              <h2>Escreva o que quer mudar; a viagem se refaz</h2>
+            </div>
+            <p>
+              Sem menu para achar. "Tira os restaurantes", "ritmo mais tranquilo", "começa às 10h", "quero andar menos" —
+              e frases com dois pedidos. O que o app não entende, ele não mexe: responde o que sabe fazer e deixa a viagem
+              como estava.
+            </p>
+          </div>
+
+          <div class="grade celulares dupla">
+            <button class="quadro" type="button">
+              <span class="moldura">
+                <img src="img/cel-pedido.png" alt="Caixa 'Peça uma mudança' com o pedido escrito" loading="lazy" />
+              </span>
+              <h3>O pedido</h3>
+              <p>"tira os restaurantes e começa às 10h" — dia 3 com 8 paradas, saída 09:40.</p>
+            </button>
+            <button class="quadro" type="button">
+              <span class="moldura">
+                <img src="img/cel-refeito.png" alt="O mesmo dia refeito, sem restaurantes e saindo às 10h" loading="lazy" />
+              </span>
+              <h3>O dia refeito</h3>
+              <p>6 paradas, saída 10:00, e "restaurantes" riscado nos filtros — vale para a viagem toda.</p>
+            </button>
+          </div>
+        </div>
+      </section>
+
       <section class="bloco tinta" id="grupo">
         <div class="limite">
           <div class="titulo-secao">
             <div>
-              <span class="marcador">02 — em grupo</span>
+              <span class="marcador">03 — sozinho ou em grupo</span>
               <h2>Um link só, o mesmo para todo mundo</h2>
             </div>
-            <p>Quem abrir entra e já edita junto. A tela de quem está com a viagem aberta se atualiza sozinha.</p>
+            <p>
+              Sozinho, a tela é só sua: nada de painel vazio. Entrou alguém pelo link, sugestões e conversa aparecem sem
+              recarregar, e todo mundo edita junto.
+            </p>
           </div>
 
           <div class="grade">
@@ -159,7 +197,7 @@
         <div class="limite">
           <div class="titulo-secao">
             <div>
-              <span class="marcador">03 — o diário</span>
+              <span class="marcador">04 — o diário</span>
               <h2>Onde você já esteve, em números</h2>
             </div>
             <p>Países, cidades, km rodados e dias na estrada — contando só o que já aconteceu.</p>
@@ -193,7 +231,7 @@
         <div class="limite">
           <div class="titulo-secao">
             <div>
-              <span class="marcador">04 — no celular</span>
+              <span class="marcador">05 — no celular</span>
               <h2>É onde a viagem acontece</h2>
             </div>
             <p>
@@ -238,7 +276,7 @@
       <section class="bloco" id="avisos">
         <div class="limite dupla-aviso">
           <div class="texto">
-            <span class="marcador">05 — no bolso</span>
+            <span class="marcador">06 — no bolso</span>
             <h2>O aviso chega antes de você precisar dele</h2>
             <p>
               No dia da viagem o roteiro não fica preso na tela: o app avisa qual é a próxima parada, a que horas e
@@ -289,7 +327,7 @@
         <div class="limite">
           <div class="titulo-secao">
             <div>
-              <span class="marcador">06 — conta e pagamento</span>
+              <span class="marcador">07 — conta e pagamento</span>
               <h2>Dia 1 de graça; o resto por Pix</h2>
             </div>
             <p>Entra com Google ou por um link no e-mail. Sem senha, sem assinatura.</p>
@@ -319,7 +357,7 @@
         <div class="limite">
           <div class="titulo-secao">
             <div>
-              <span class="marcador">07 — diário de obra</span>
+              <span class="marcador">08 — diário de obra</span>
               <h2>O que foi ficando pronto</h2>
             </div>
             <p>Construído em etapas, cada uma com teste antes de seguir.</p>
@@ -361,6 +399,33 @@
                   A suíte passou a rodar nos cinco. O WebKit revelou uma edição do caderno que podia se perder antes de
                   gravar; corrigido no mesmo dia.
                 </p>
+              </div>
+            </li>
+            <li>
+              <time>08 set</time>
+              <div>
+                <strong>Sozinho é o caso normal</strong>
+                <p>
+                  Sem amigos, a viagem não mostra painel vazio. E "peça uma mudança" por escrito vira operação do motor —
+                  sem IA no meio, na mesma requisição.
+                </p>
+              </div>
+            </li>
+            <li>
+              <time>09 set</time>
+              <div>
+                <strong>Pronto para as lojas</strong>
+                <p>
+                  APK construído no GitHub, App Links, manifesto de privacidade, fichas e capturas da Play e da App Store.
+                  Fotografar no celular revelou três telas que rolavam de lado; corrigidas e vigiadas por teste.
+                </p>
+              </div>
+            </li>
+            <li>
+              <time>11 set</time>
+              <div>
+                <strong>No GitHub, com CI verde</strong>
+                <p>Lint, migration do zero, 239 testes e 19 cenários de ponta a ponta em cinco navegadores, a cada push.</p>
               </div>
             </li>
           </ol>
